@@ -5,15 +5,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export && touch out/.nojekyll",
+    "build-ssg": "next build && next export && touch out/.nojekyll",
+    "deploy": "gh-pages -d out -t true",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.6",
+    "@sendgrid/mail": "^7.6.0",
+    "formik": "^2.2.9",
+    "gh-pages": "^3.2.3",
+    "graphql": "^16.2.0",
     "next": "12.0.7",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.8.4",
+    "next-themes": "^0.0.15",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-scroll-wheel-handler": "^2.1.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7"
+    "eslint-config-next": "12.0.7",
+    "next-sitemap": "^2.0.5"
   }
 }

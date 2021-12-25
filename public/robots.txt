@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+
+# test-bot
+User-agent: test-bot
+Allow: /portfolio
+Allow: /contact
+
+# Host
+Host: https://marioroca.dev
+
+# Sitemaps
+Sitemap: https://marioroca.dev/sitemap.xml
+Sitemap: https://marioroca.dev/sitemap-0.xml
