@@ -172,15 +172,16 @@ export default function GlobalStyle() {
         transform: scale(1.12)
       }
 
-      .portfolio ul,
+      .portfolio__list,
       .portfolio li {
         min-width: 100%;
         width: 100%;
         overflow: hidden;
       }
 
-      .portfolio ul {
+      .portfolio__list {
         clip-path: url(#brandClipPath);
+        cursor: grab;
         z-index: 2;
         display: flex;
         align-items: center;
@@ -314,6 +315,7 @@ export default function GlobalStyle() {
 
       .field input,
       .field textarea {
+        appearance: none;
         border: none;
         box-shadow: inset 0 0 0 2px var(--color-tertiary);
         padding: 0;
@@ -397,7 +399,7 @@ export default function GlobalStyle() {
         }
 
         .title {
-          font-size: calc(2.26vw + 2.26vh);
+          font-size: calc(2.26vw + 2.16vh);
           line-height: 1.052;
           margin: 0 0 calc(1vw + 1vh);
         }
@@ -444,7 +446,6 @@ export default function GlobalStyle() {
 
         .field input,
         .field textarea {
-          box-shadow: inset 0 0 0 calc(0.072vw + 0.072vh) var(--color-tertiary);
           font-size: calc(0.7vw + 0.7vh);
           padding: calc(0.92vw + 0.92vh) calc(1vw + 1vh);
           height: auto;
