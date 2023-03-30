@@ -1,25 +1,52 @@
-const mail = require('@sendgrid/mail');
+import { mailOptions, transporter } from '../../config/nodemailer'
 
-mail.setApiKey(process.env.REACT_APP_API_SENDGRID);
+const CONTACT_MESSAGE_FIELDS = {
+  fullname: 'Name',
+  email: 'Email',
+  subject: 'Subject',
+  message: 'Message'
+}
 
-export default function handler(req, res) {
-  const body = JSON.parse(req.body);
+const generateEmailContent = (data) => {
+  const stringData = Object.entries(data).reduce(
+    (str, [key, val]) =>
+      (str += `${CONTACT_MESSAGE_FIELDS[key]}: \n${val} \n \n`),
+    ''
+  )
 
-  const message = `
-    Name: ${body.fullname}\r\n
-    Email: ${body.email}\r\n
-    Message: ${body.message}
-  `;
+  const htmlData = Object.entries(data).reduce((str, [key, val]) => {
+    return (str += `<p align="left"><b>${CONTACT_MESSAGE_FIELDS[key]}</b> <span>${val}</span></p>`)
+  }, '')
 
-  const data = {
-    to: 'hello@marioroca.dev',
-    from: 'hello@marioroca.dev',
-    subject: 'New web form message!',
-    text: message,
-    html: message.replace(/\r\n/g, '<br>')
+  return {
+    text: stringData,
+    html: `<div>${htmlData}</div>`
+  }
+}
+
+const handler = async (req, res) => {
+  if (req.method === 'POST') {
+    const data = req.body
+
+    if (!data) {
+      return res.status(400).send({ message: 'Bad request' })
+    }
+
+    try {
+      await transporter.sendMail({
+        ...mailOptions,
+        ...generateEmailContent(JSON.parse(data)),
+        subject: 'Mensaje recibido desde marioroca.dev'
+      })
+
+      return res.status(200).json({ success: true })
+    } catch (err) {
+      console.log(err)
+      return res.status(400).json({ message: (err).message })
+    }
   }
 
-  mail.send(data);
-
-  res.status(200).json({status: 'Ok'});
+  return res.status(400).json({ message: 'Bad request' })
 }
+
+export default handler
