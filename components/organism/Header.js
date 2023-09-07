@@ -7,8 +7,8 @@ export default function Header () {
 
   return (
     <header>
-      <Link href="/">
-        <a className="logo"><IconLogo /></a>
+      <Link href="/" className="logo">
+        <IconLogo />
       </Link>
       <Navigation />
       <Hamburger />

@@ -14,12 +14,12 @@ export default function Home({ home }) {
       <article className="info">
         <h1 className="title" dangerouslySetInnerHTML={{ __html: info?.title }}/>
         <p className="paragraph" dangerouslySetInnerHTML={{ __html: info?.description }}/>
-        <Link href="/contact">
-          <a className="btn">Get in touch</a>
+        <Link href="/contact" className="btn">
+          Get in touch
         </Link>
       </article>
       <figure className="cover__image">
-        { info?.photo?.url && (
+        {info?.photo?.url && (
           <Image
             src={info?.photo?.url}
             width={618.88}

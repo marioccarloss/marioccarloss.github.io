@@ -19,10 +19,8 @@ export default function Navigation () {
           {
             navLinks.map((link) => (
               <li key={link.title}>
-                <Link href={link.path} passHref>
-                  <a className={router.pathname === link.path ? "activeLink" : ""}>
-                    {link.title}
-                  </a>
+                <Link href={link.path} passHref className={router.pathname === link.path ? "activeLink" : ""}>
+                  {link.title}
                 </Link>
               </li>
             ))

@@ -1,9 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    loader: "imgix",
-    path: "",
-    domains: ['media.graphcms.com','localhost'],
+    domains: ['media.graphassets.com', 'localhost'],
   },
   exportPathMap: async function (
     defaultPathMap,

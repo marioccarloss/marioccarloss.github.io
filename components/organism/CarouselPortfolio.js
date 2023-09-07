@@ -20,6 +20,8 @@ export default function CarouselPortfolio({portfolio}) {
     slide.translate === - 100 * (portfolio.length - 1) ? setSlide({ active: 0, translate: 0}) : setSlide({ active: (slide.active + 1) % portfolio.length, translate: slide.translate - 100 })
   }
 
+  const portolioSorted = portfolio.map(project => project).sort((a, b) => a.order - b.order);
+
   return(
     <>
       <div className="portfolio">
@@ -29,8 +31,7 @@ export default function CarouselPortfolio({portfolio}) {
           disableKeyboard={true}
         >
         <ul className="portfolio__list">
-        { portfolio &&
-          portfolio.map((project, index) => (
+          {portfolio && portolioSorted.map((project, index) => (
             <li key={index}
               style={{ transform: `translateX(${slide.translate}%)` }}
               className={index === slide.active ?  `slide-project active` : `slide-project `}>
@@ -42,11 +43,9 @@ export default function CarouselPortfolio({portfolio}) {
                 loading="eager"
                 alt={project.title}
               />
-              <Link href={project.url}>
-                <a target="_blank" className="btn-link">
-                  <span className="f f-ac">Visit <IconLinkTo /></span>
-                  <small>{project.title}</small>
-                </a>
+              <Link href={project.url} target="_blank" className="btn-link">
+                <span className="f f-ac">Visit <IconLinkTo /></span>
+                <small>{project.title}</small>
               </Link>
             </li>
           ))}

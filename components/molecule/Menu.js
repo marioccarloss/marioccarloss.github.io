@@ -11,7 +11,7 @@ export default function Menu({ refMenu }) {
         <span className="contact">
           Get in touch
           <Link href="mailto:marioccarloss@gmail.com">
-            <a>marioccarloss@gmail.com</a>
+            marioccarloss@gmail.com
           </Link>
         </span>
       </div>

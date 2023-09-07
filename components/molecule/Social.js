@@ -8,24 +8,18 @@ export default function Social() {
     <>
       <ul className="social">
         <li>
-          <Link href="https://www.linkedin.com/in/marioccarloss/" noopener noreferrer>
-            <a target="_blank">
-              <IconLinkedin width={20} height={22}/>
-            </a>
+          <Link href="https://www.linkedin.com/in/marioccarloss/" target="_blank" noopener noreferrer>
+            <IconLinkedin width={20} height={22}/>
           </Link>
         </li>
         <li>
-          <Link href="https://www.behance.net/marioccarloss/" noopener noreferrer>
-            <a target="_blank">
-              <IconBehance width={24} height={22}/>
-            </a>
+          <Link href="https://www.behance.net/marioccarloss/"  target="_blank" noopener noreferrer>
+            <IconBehance width={24} height={22}/>
           </Link>
         </li>
         <li>
-          <Link href="https://github.com/marioccarloss/" noopener noreferrer>
-            <a target="_blank">
-              <IconGithub width={20} height={22}/>
-            </a>
+          <Link href="https://github.com/marioccarloss/" target="_blank" noopener noreferrer>
+            <IconGithub width={20} height={22}/>
           </Link>
         </li>
       </ul>
