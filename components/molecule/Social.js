@@ -8,17 +8,17 @@ export default function Social() {
     <>
       <ul className="social">
         <li>
-          <Link href="https://www.linkedin.com/in/marioccarloss/" target="_blank" noopener noreferrer>
+          <Link href="https://www.linkedin.com/in/marioccarloss/" target="_blank">
             <IconLinkedin width={20} height={22}/>
           </Link>
         </li>
         <li>
-          <Link href="https://www.behance.net/marioccarloss/"  target="_blank" noopener noreferrer>
+          <Link href="https://www.behance.net/marioccarloss/"  target="_blank">
             <IconBehance width={24} height={22}/>
           </Link>
         </li>
         <li>
-          <Link href="https://github.com/marioccarloss/" target="_blank" noopener noreferrer>
+          <Link href="https://github.com/marioccarloss/" target="_blank">
             <IconGithub width={20} height={22}/>
           </Link>
         </li>
@@ -37,6 +37,24 @@ export default function Social() {
           display: flex;
           align-items: center;
           justify-content: center;
+        }
+
+        .activeLink {
+          font-weight: bolder;
+          position: relative;
+        }
+
+        .activeLink:after {
+          content: '';
+          background-color: var(--color-primary);
+          width: 8px;
+          height: 8px;
+          border-radius: 10px;
+          position: absolute;
+          top: 2rem;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
         }
 
         @media screen and (min-width: 1024px) {
