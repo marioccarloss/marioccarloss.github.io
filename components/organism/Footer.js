@@ -5,7 +5,7 @@ export default function Footer () {
     <>
       <footer>
         <Social />
-        <p>© marioroca 2022. All rights reserved.</p>
+        <p>{`© marioroca ${new Date().getFullYear()}. All rights reserved.`}</p>
       </footer>
 
       <style jsx>{`
